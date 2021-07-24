@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/search-product-filter")
+@RequestMapping("/search")
 public class SearchProductFilterController {
 
     private final SearchProductsRepositoryImpl searchProductsRepository;
@@ -56,7 +56,7 @@ public class SearchProductFilterController {
         return new ModelAndView(PagesPathEnum.FILTER_SEARCH_PAGE.getPath(), model);
     }
 
-    @GetMapping("/result/show")
+    @GetMapping("/result/page")
     public ModelAndView getResultSearchPageShow(@RequestParam() int currentPage,
                                                 HttpSession session) throws ControllerException {
         Map<String, String> searchParams = (Map<String, String>) session.getAttribute("searchParams");

@@ -62,7 +62,7 @@
             <c:forEach items="${userOrder}" var="userOrder">
                 <div class="card w-25 m-1" >
                     <div class="card-body">
-                        <a href="${contextPath}/order-details?id=${userOrder.getId()}">
+                        <a href="${contextPath}/order/details?id=${userOrder.getId()}">
                         <h4 class="card-title">ID заказа ${userOrder.getId()}</h4>
                         <h4 class="card-title">Дата заказа ${userOrder.getDate()}</h4>
                         <h4 class="card-title">Цена ${userOrder.getPrice()}</h4>

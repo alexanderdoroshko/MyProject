@@ -17,7 +17,7 @@
 <h2 align="center">Popular categories</h2>
 <div class="row">
     <div class="col-sm-9">
-        <form action="${contextPath}/search-product-filter/result" method="get">
+        <form action="${contextPath}/search/result" method="get">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Search" name="nameProduct">
                 <div class="input-group-append">
@@ -27,12 +27,12 @@
         </form>
     </div>
     <div class="col-sm-1">
-        <a href="${contextPath}/user/sign-in">
+        <a href="${contextPath}/user/sign/in">
             <button class="btn btn-primary">Войти</button>
         </a>
     </div>
     <div class="col-sm-1">
-        <a href="${contextPath}/personal-account">
+        <a href="${contextPath}/personal/account">
             <button class="btn btn-primary">Кабинет</button>
         </a>
     </div>
@@ -43,7 +43,7 @@
     </div>
 </div>
 <div>
-    <a href="${contextPath}/search-product-filter">
+    <a href="${contextPath}/search">
         <p>Поиск по фильтрам</p>
     </a>
 </div>
@@ -56,7 +56,7 @@
                 <div class="card w-25 m-1" type="category">
                     <div class="card-body">
                         <h4 class="card-title">${category.getName()}</h4>
-                        <a href="${contextPath}/category-pagination?categoryId=${category.getId()}&pageNumber=1&pageSize=3&sortField=name&sortDirection=ASC">
+                        <a href="${contextPath}/category/pagination?categoryId=${category.getId()}&pageNumber=1&pageSize=3&sortField=name&sortDirection=ASC">
                             <img src="${contextPath}/images/${category.getImage_path()}"
                                  style="width:150px;height:120px"
                                  alt="Category image"></a>

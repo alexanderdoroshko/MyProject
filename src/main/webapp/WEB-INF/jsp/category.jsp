@@ -21,7 +21,7 @@
 <br>
 <div class="row">
     <div class="col-sm-9">
-        <form action="${contextPath}/search-product-filter/result" method="get" accept-charset="UTF-8">
+        <form action="${contextPath}/search/result" method="get" accept-charset="UTF-8">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Search" name="nameProduct">
                 <div class="input-group-append">
@@ -36,7 +36,7 @@
         </a>
     </div>
     <div class="col-sm-1">
-        <a href="${contextPath}/personal-account">
+        <a href="${contextPath}/personal/account">
             <button class="btn btn-primary">Кабинет</button>
         </a>
     </div>
@@ -65,7 +65,7 @@
                     <p>${products.getName()}</p>
                     <p>${products.getDescription()}</p>
                     <p>${products.getPrice()}</p>
-                    <a href="${contextPath}/cart/add-product?productId=${products.getId()}">
+                    <a href="${contextPath}/cart/add/product?productId=${products.getId()}">
                         <button id="addProductToCart" type="submit" onclick="productAddedToShoppingCartMsg()"
                                 class="btn btn-primary">Добавить в корзину
                         </button>
@@ -85,7 +85,7 @@
         <c:if test="${not empty pages}">
             <c:forEach items="${pages}" var="pages">
                 <li>
-                    <a href="${contextPath}/category-pagination?categoryId=${products.get(0).getCategory().getId()}&pageNumber=${pages}&pageSize=3&sortField=name&sortDirection=ASC">${pages}</a>
+                    <a href="${contextPath}/category/pagination?categoryId=${products.get(0).getCategory().getId()}&pageNumber=${pages}&pageSize=3&sortField=name&sortDirection=ASC">${pages}</a>
                 </li>
             </c:forEach>
         </c:if>

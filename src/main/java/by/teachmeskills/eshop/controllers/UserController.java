@@ -29,12 +29,12 @@ public class UserController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping("/sign-in")
+    @GetMapping("/sign/in")
     public ModelAndView getSignInPage() throws ControllerException {
         return new ModelAndView(PagesPathEnum.SIGN_IN_PAGE.getPath());
     }
 
-    @PostMapping("/enter-in-system")
+    @PostMapping("/enter/in/system")
     public ModelAndView SignIn(@RequestParam String username,
                                @RequestParam String password,
                                HttpSession session) throws ControllerException {

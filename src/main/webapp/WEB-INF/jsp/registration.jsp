@@ -15,7 +15,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div class="container">
     <h2>Регистрация</h2>
-    <form action="${contextPath}/registration/new-user" method="post">
+    <form action="${contextPath}/registration/new/user" method="post">
         <div class="form-group">
             <label for="usr">Name:</label>
             <input type="text" class="form-control" id="usr" name="name">

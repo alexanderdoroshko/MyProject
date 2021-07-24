@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/personal-account")
+@RequestMapping("/personal/account")
 public class PersonalAccountController {
     private final UserService userService;
     private final OrderService orderService;

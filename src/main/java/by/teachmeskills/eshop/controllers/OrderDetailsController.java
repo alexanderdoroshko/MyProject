@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @RestController
-@RequestMapping("/order-details")
+@RequestMapping("/order/details")
 public class OrderDetailsController {
     private final OrderService orderService;
 

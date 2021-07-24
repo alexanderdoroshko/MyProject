@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByEmailAndPassword(String email, String password) throws ServiceException {
-        return userRepository.findByEmailAndPassword(email,password);
+        return userRepository.findByEmailAndPassword(email, password);
     }
 
     @Override

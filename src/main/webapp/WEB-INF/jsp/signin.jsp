@@ -25,7 +25,7 @@
     <div class="w3-display-middle">
         <h2>Login form with validation</h2>
         <p>Please, enter your credentials</p>
-        <form method="post" action="${contextPath}/user/enter-in-system/">
+        <form method="post" action="${contextPath}/user/enter/in/system/">
             <%--            <input type="hidden" name="command" value="sign-in"/>--%>
             <div class="form-group">
                 <label for="username">Username:</label>

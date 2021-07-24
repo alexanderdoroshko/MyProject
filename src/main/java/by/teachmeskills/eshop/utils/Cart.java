@@ -4,10 +4,13 @@ package by.teachmeskills.eshop.utils;
 
 import by.teachmeskills.eshop.repository.domain.Product;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static by.teachmeskills.eshop.RequestParamsEnum.SHOPPING_CART;
 
 public class Cart {
     private Map<Integer, Product> products;
@@ -47,4 +50,20 @@ public class Cart {
                 ", totalPrice=" + totalPrice +
                 '}';
     }
+    public  static Cart initialize(HttpSession session){
+        Cart cart;
+        Object objCart = session.getAttribute("cart");
+
+        if (objCart != null) {
+            cart = (Cart) objCart;
+        } else {
+            cart = new Cart();
+            session.setAttribute(SHOPPING_CART.getValue(), cart); //"cart"
+        }
+        return cart;
+    }
+
+
+
+
 }

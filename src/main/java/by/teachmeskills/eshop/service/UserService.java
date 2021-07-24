@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UserService extends BaseService<User> {
 
-    User getUserByEmail(String email) throws ServiceException;
+    User getUserByEmail(String email) throws ServiceException, ReflectiveOperationException;
 
     List<User> findAllUsers() throws ServiceException;
 

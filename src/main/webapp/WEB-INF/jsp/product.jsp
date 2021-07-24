@@ -30,7 +30,7 @@
         <p>${product.getName()}</p>
         <p>${product.getDescription()}</p>
         <p>${product.getPrice()}</p>
-        <a href="${contextPath}/cart/add-product?productId=${product.getId()}">
+        <a href="${contextPath}/cart/add/product?productId=${product.getId()}">
             <button id="addProductToCart" type="submit" onclick="productAddedToShoppingCartMsg()"
                     class="btn btn-secondary">Добавить в
                 корзину
