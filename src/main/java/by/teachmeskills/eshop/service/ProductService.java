@@ -14,7 +14,7 @@ public interface ProductService extends BaseService<Product> {
 
     List<Product> findProductsListByParams(Map<String, String> params, int currentPage, int recordsPerPage) throws ServiceException;
 
-    Page<Product> findProductsByCategoryId(int categoryId, Pageable pageable);
+    Page<Product> findProductsByCategoryId(int categoryId, Pageable pageable) throws ServiceException;
 
 
 

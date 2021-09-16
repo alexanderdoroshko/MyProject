@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Page<Product> findProductsByCategoryId(int categoryId, Pageable pageable) {
+    public Page<Product> findProductsByCategoryId(int categoryId, Pageable pageable) throws ServiceException{
         return productRepository.findAllByCategory_Id(categoryId, pageable);
     }
 

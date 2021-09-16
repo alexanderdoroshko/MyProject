@@ -28,7 +28,7 @@ public class RegistrationController {
     }
 
 
-    @PostMapping("/new-user")
+    @PostMapping("/new/user")
     public ModelAndView createNewUser(@ModelAttribute("user") @Valid User user, BindingResult bindingResult, ModelAndView modelAndView) throws ControllerException {
 
         if (bindingResult.hasErrors()) {

@@ -5,6 +5,7 @@ import by.teachmeskills.eshop.repository.domain.Category;
 import by.teachmeskills.eshop.repository.domain.Product;
 import by.teachmeskills.eshop.service.CategoryService;
 import by.teachmeskills.eshop.service.ProductService;
+import by.teachmeskills.eshop.utils.PageByCategory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -22,7 +23,7 @@ import static by.teachmeskills.eshop.PagesPathEnum.CATEGORY_PAGE;
 
 
 @RestController
-@RequestMapping("/category-pagination")
+@RequestMapping("/category/pagination")
 public class CategoryControllerWithPagination {
     private final ProductService productService;
     private final CategoryService categoryService;
@@ -48,20 +49,13 @@ public class CategoryControllerWithPagination {
         Sort sortOrder = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name())
                 ? Sort.by(sortField).ascending() : Sort.by(sortField).descending();
         Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, sortOrder);
+
         Page<Product> productList = productService.findProductsByCategoryId(categoryId, pageable);
 
+        PageByCategory pageByCategory = new PageByCategory(productService);  // Получение пагинации
+        int [] countPageArray = pageByCategory.getArrayPage(categoryId,pageSize);
 
-        int countProductsByCategory = productService.getCountOfProductsForCategory(categoryId);   //Расчет количетва страниц и создание массива
-        int pageCount = countProductsByCategory / pageSize;
-        if (countProductsByCategory % pageSize != 0) {
-            pageCount = pageCount + 1;
-        }
-        int[] countPageArray = new int[pageCount];
-        for (int i = 0; i < countPageArray.length; i++) {
-            countPageArray[i] = i + 1;
-        }
         model.addAttribute("pages",countPageArray);
-
 
         //Add list to category object
         if (category.isPresent()) {

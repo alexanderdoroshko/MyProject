@@ -25,9 +25,7 @@ public class StartPageController {
     @GetMapping()
     public ModelAndView getHomePage() throws ControllerException {
         ModelMap model = new ModelMap();
-
         List<Category> categoriesList = categoryService.getAllCategories();
-
         model.addAttribute("categories", categoriesList);
 
         return new ModelAndView(PagesPathEnum.HOME_PAGE.getPath(), model);

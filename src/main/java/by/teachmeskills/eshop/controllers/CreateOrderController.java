@@ -10,6 +10,7 @@ import by.teachmeskills.eshop.service.UserService;
 import by.teachmeskills.eshop.utils.Cart;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 @RestController
-@RequestMapping("/create-order")
+@RequestMapping("/create/order")
 public class CreateOrderController {
     private final UserService userService;
     private final OrderService orderService;
@@ -30,7 +31,7 @@ public class CreateOrderController {
     }
 
 
-    @GetMapping()
+   @GetMapping()
     public ModelAndView getOrderPage(HttpSession session) throws ControllerException {
         Cart cart = (Cart) session.getAttribute("cart");
         User user = null;

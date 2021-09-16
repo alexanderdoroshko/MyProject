@@ -18,7 +18,7 @@
 
 <c:if test="${not empty requestScope.error}">
     <h1>${error}</h1>
-    <a href="${contextPath}/user/sign-in">
+    <a href="${contextPath}/user/sign/in">
         <button class="btn btn-primary">Войти</button>
     </a>
 </c:if>

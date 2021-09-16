@@ -23,7 +23,7 @@
 
 <div class="center">
     <div class="btn-group btn-group-lg">
-        <a href="${contextPath}/personal-account">
+        <a href="${contextPath}/personal/account">
             <button class="btn btn-outline-primary">Кабинет</button>
         </a>
         <a href="${contextPath}/home">
@@ -42,7 +42,7 @@
                 <h4 class="card-title">${product.getDescription()}</h4>
                 <h4 class="card-title">${product.getPrice()}</h4>
 
-                <a href="${contextPath}/cart/delete-product?productId=${product.getId()}">
+                <a href="${contextPath}/cart/delete/product?productId=${product.getId()}">
                     <button class="btn btn-success">Удалить</button>
                 </a>
 
@@ -54,7 +54,7 @@
     <h3>Итого ${totalPrice}</h3>
 </div>
 <div>
-    <a href="${contextPath}/create-order">
+    <a href="${contextPath}/create/order">
         <button type="button" class="btn btn-success">Оформить заказ</button>
     </a>
 </div>

@@ -17,7 +17,6 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
-import static by.teachmeskills.eshop.RequestParamsEnum.SHOPPING_CART;
 
 @Controller
 @RequestMapping("/cart")
@@ -44,36 +43,23 @@ public class CartController {
         }
     }
 
-    @GetMapping("/add-product")
-    public ModelAndView AddProductToCart(@RequestParam int productId, HttpSession session) throws
-            ControllerException {
+    @GetMapping("/add/product")
+    public ModelAndView addProductToCart(@RequestParam int productId, HttpSession session) throws ControllerException {
         ModelMap model = new ModelMap();
         Optional<Product> product = productService.read(productId);
-
-        Cart cart;
-        Object objCart = session.getAttribute("cart");
-
-        if (objCart != null) {
-            cart = (Cart) objCart;
-        } else {
-            cart = new Cart();
-            session.setAttribute(SHOPPING_CART.getValue(), cart); //"cart"
-        }
-
+        Cart cart = Cart.initialize(session);
         cart.addProduct(product.get());
         model.addAttribute("product", product.get());
 
         return new ModelAndView(PagesPathEnum.PRODUCT_PAGE.getPath(), model);
     }
 
-    @GetMapping("/delete-product")
-    public ModelAndView DeleteProductFromCart(@RequestParam(required = false) int productId, HttpSession session) throws
+    @GetMapping("/delete/product")
+    public ModelAndView deleteProductFromCart(@RequestParam(required = false) int productId, HttpSession session) throws
             ControllerException {
         Optional<Product> product = productService.read(productId);
         Cart cart = (Cart) session.getAttribute("cart");
-
         cart.removeProduct(product.get().getId());
-
         List<Product> productList = cart.getProducts();
         int totalPrice = cart.getTotalPrice();
         ModelMap model = new ModelMap();
